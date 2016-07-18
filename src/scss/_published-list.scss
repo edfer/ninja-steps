@@ -1,0 +1,59 @@
+// Variables
+// $published-picture: url('http://tours.atu2.com/files/openers/110-m.jpg');
+
+// Styles
+
+.published-list {
+
+	// flex-direction: column;
+		// display:flex;
+		// flex-direction: column;
+		
+
+
+    .published-item {
+
+		
+		width:80vw;
+		height: 500px;
+		// margin: 20px 30px;
+		// position: absolute;
+		border: 1px solid red;
+
+        .picture {
+        	position: relative;
+            display:block;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Stereolab_Live_IV_(cropped).jpg/250px-Stereolab_Live_IV_(cropped).jpg");
+            background-repeat: no-repeat;
+            background-size: contain;
+  //           margin: 0;
+
+        		
+        }
+
+        
+
+
+        .lead {
+            height: 200px;     
+            border: 1px solid blue;
+            
+           	
+           	h4, p {
+           		border: 1px solid grey;
+           		
+         //    white-space: nowrap;
+	        // text-align: center;
+	       	// text-overflow: ellipsis;
+	       	// overflow: hidden;
+         //   	// height:16px;
+	        // padding-top: 20px;
+	       	// padding-right: 0px;
+	       	// padding-left: 20px;
+           		
+        	}
+         }
+    }
+}

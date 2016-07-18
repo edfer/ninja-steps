@@ -1,0 +1,38 @@
+// Font families
+$main-font-family: 'Cabin', sans-serif;
+$titles-font-family: $main-font-family;
+$body-font-family: $main-font-family;
+
+
+// Font sizes
+$font-size-base: 14px;
+$font-size-sm: $font-size-base - 3px;
+$font-size-lg: $font-size-base + 3px;
+$font-size-h1: $font-size-base + 15px;
+$font-size-h2: $font-size-base + 12px;
+$font-size-h3: $font-size-base + 9px;
+$font-size-h4: $font-size-base + 6px;
+$font-size-h5: $font-size-base + 3px;
+$font-size-h6: $font-size-base;
+
+
+
+// Base colors
+$color-white: #fff;
+$color-black: #333;
+$color-dark-blue: #0F2F50;
+$color-light-blue: #74C2C3;
+$color-lemon-green: #B7CD44;
+$color-light-orange: #FCB763;
+$color-pale: #FFF9E3;
+
+
+// Components colors
+$main-text-color: $color-black;
+$body-background-color: $color-pale;
+
+
+// Responsive variables
+$desktop-width: 1025px;
+$tablet-width: 736px;
+$phone-width: $tablet-width - 1px;
