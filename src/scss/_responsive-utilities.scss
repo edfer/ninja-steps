@@ -5,7 +5,7 @@
 }
 
 @mixin if-is-tablet {
-	@media all and (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}){
+	@media all and (min-width: #{$tablet-width}) {
 		@content;
 	}
 }

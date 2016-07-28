@@ -1,0 +1,16 @@
+.comment-section {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid blue;
+    .comment-article {
+        border: 1px solid red;
+        padding: 10px;
+        .comment-author {
+            text-transform: uppercase;
+            flex-direction: row;
+        }
+        .comment-author-text {
+
+        }
+    }
+}

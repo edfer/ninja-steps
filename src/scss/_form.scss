@@ -1,0 +1,43 @@
+form {
+	top: 0px;
+	padding: 50px 10px 10px 10px;
+	width:calc(100% - 20px);
+	height: auto;
+	display: flex;
+	flex-direction:column;
+	justify-content: center;
+	background: $body-background-color;
+	// position: absolute;
+
+	@include if-is-tablet{
+		flex-direction: row;
+		flex-wrap: wrap;
+		// height: auto;
+		position:relative;
+
+		div {
+			width:calc(50% - 10px);
+			margin: auto 5px;
+		}
+
+		textarea {
+			margin-left:5px;
+			margin-right: 5px;
+		}
+		button {
+			width:40%
+		}
+	}
+	
+	label {
+		margin-left: 6px;
+	}
+
+	#textarea-label {
+		margin-left: 10px;
+
+		@include if-is-phone {
+			margin-left: 6px;
+		}
+	}
+}

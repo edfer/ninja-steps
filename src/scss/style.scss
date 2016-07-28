@@ -1,8 +1,14 @@
 @import 'reset';
 @import 'https://fonts.googleapis.com/css?family=Cabin:400,400i,700,700i';
+@import 'responsive-utilities';
 @import 'clearfix';
 @import 'variables';
 @import 'web-header';
+@import 'detail-view';
+@import 'ui-states';
 @import 'html-tags';
-@import 'responsive-utilities';
-@import 'published-list'; 
+@import 'form';
+@import 'published-list';
+@import 'comments'; 
+
+

@@ -1,0 +1,12 @@
+body {
+
+	.ui-element {
+		display: none;
+	}
+
+	&.form-shown {
+		.new-comment-form {
+			display: flex;
+		}
+	}
+}
