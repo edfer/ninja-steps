@@ -345,3 +345,13 @@ form {
     .comment-section .comment-article .comment-author {
       text-transform: uppercase;
       flex-direction: row; }
+
+.icon-search {
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px; }
+
+.icon-menu {
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px; }

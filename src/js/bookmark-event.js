@@ -5,19 +5,24 @@ var addingBookmark = require('./adding-bookmark');
 var bookmarked = $('.bookmark-button-2');
 var unbookmark = $('.bookmark-button-1');
 
-$('.bookmark-div').on('click', unbookmark, function(){
+$('.bookmark-div').on('click',  function(){
 
 	var articleId = $(this).parents('.published-item').data('id');
 
 	var myBookmarks =[];
 
-	$(myBookmarks).add(articleId);
+	myBookmarks.push(articleId);
 
 	for (var i in myBookmarks){
-		myBookmarks = myBookmarks[i]
+		myBookmarkedItem = myBookmarks[i]
 	}
 
-	localStorage.setItem('bookmarked', myBookmarks[i]);
+	localStorage.setItem(myBookmarkedItem, 'bookmarked');
+
+	$(this).find('.bookmark-button-2').css('display', 'block');
+
+});
+// });
 
 	// START AJAX EXPERIMENT
 
@@ -54,7 +59,7 @@ $('.bookmark-div').on('click', unbookmark, function(){
 
 	// $('footer').toggleClass('bookmarked');
 	// console.log('pulsando');
-});
+
 
 
 
