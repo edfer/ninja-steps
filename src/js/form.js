@@ -1,5 +1,5 @@
 var $ = require('jquery');
-var publish = require('./publish'); 
+var publishComment = require('./publish-comment'); 
 
 $('.new-comment-form').on('submit', function(){
 	
@@ -46,7 +46,7 @@ $('.new-comment-form').on('submit', function(){
 			console.log('success', response);
 			$('form')[0].reset();
 			$('#first-name').focus();
-			publish.load();
+			publishComment.load();
 		},
 		error: function(){
 			console.error('error', arguments);

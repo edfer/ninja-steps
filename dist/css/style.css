@@ -303,6 +303,37 @@ form {
         .published-list .article-footer .picture {
           width: 120px;
           margin-right: 20px; } }
+    .published-list .article-footer .published-author {
+      padding-top: 4%; }
+      @media all and (min-width: 737px) {
+        .published-list .article-footer .published-author {
+          padding-top: 0;
+          margin-top: 3%; } }
+      @media all and (min-width: 1026px) {
+        .published-list .article-footer .published-author {
+          margin-top: 4%; } }
+    .published-list .article-footer.bookmarked .show-bookmark {
+      display: block; }
+    .published-list .article-footer .bookmark-button-1 {
+      margin-left: 55%;
+      position: absolute;
+      display: block; }
+      @media all and (min-width: 737px) {
+        .published-list .article-footer .bookmark-button-1 {
+          margin-left: 30%; } }
+      @media all and (min-width: 1026px) {
+        .published-list .article-footer .bookmark-button-1 {
+          margin-left: 290px; } }
+    .published-list .article-footer .bookmark-button-2 {
+      margin-left: 55%;
+      position: absolute;
+      display: none; }
+      @media all and (min-width: 737px) {
+        .published-list .article-footer .bookmark-button-2 {
+          margin-left: 30%; } }
+      @media all and (min-width: 1026px) {
+        .published-list .article-footer .bookmark-button-2 {
+          margin-left: 290px; } }
 
 .comment-section {
   display: flex;

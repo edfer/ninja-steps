@@ -1,170 +1,163 @@
 // Variables
-
-
 // Styles
-
 .container {
-    @include if-is-desktop{
-        width:100%;
+    @include if-is-desktop {
+        width: 100%;
         max-width: 1200px;
         margin: 0 auto;
     }
 }
 
-
 .published-list {
-
-	  flex-direction: column;
-		display:flex;
-    padding-bottom:10px;
+    flex-direction: column;
+    display: flex;
+    padding-bottom: 10px;
     // justify-content: center;
     // margin-left: 5px;
-
-    @include if-is-tablet{
-       
-    }
-    @include if-is-desktop{
+    @include if-is-tablet {}
+    @include if-is-desktop {
         display: block;
         margin-left: 3%;
         // flex-direction: row;
         // flex-wrap: wrap;
-        padding:10px;
-        
-
+        padding: 10px;
     }
-
     .published-item {
-        
         @extend .clearfix;
-        
         width: calc(100vw - 30px);
-		    border-radius:10px;
-        margin-left:auto;
-        margin-right:auto;
+        border-radius: 10px;
+        margin-left: auto;
+        margin-right: auto;
         padding-bottom: 10px;
-        margin-bottom:10px;
+        margin-bottom: 10px;
         max-height: 100%;
         background: lighten($color-light-blue, 5%);
-
-        @include if-is-desktop{
-            display:block;
-            margin-left:3%;
+        @include if-is-desktop {
+            display: block;
+            margin-left: 3%;
             float: left;
             box-sizing: border-box;
             max-height: 100%;
             width: 45%;
-            padding:10px;
+            padding: 10px;
             // border: 1px solid blue;
-            
-
         }
-        
-
-        
-
-        .lead { 
-          display: block;
-          padding: 0px 20px 0px 20px;
-          margin: 0 auto;
-          text-align:center;
-          
-
-          h4 {
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            text-transform: uppercase;
-            @include if-is-tablet{
-              font-size: 30px;
-              padding: 0px 5px 0px 20px;
-              margin-top: 20px;
+        .lead {
+            display: block;
+            padding: 0px 20px 0px 20px;
+            margin: 0 auto;
+            text-align: center;
+            h4 {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                text-transform: uppercase;
+                @include if-is-tablet {
+                    font-size: 30px;
+                    padding: 0px 5px 0px 20px;
+                    margin-top: 20px;
+                }
+                @include if-is-desktop {
+                    font-size: 30px; // USANDO .user-info
+                    padding: 5px 5px 20px 0px; // padding: 0px 5px 0px 90px;
+                    margin: 0 auto;
+                }
             }
-            @include if-is-desktop{
-              font-size: 30px;           // USANDO .user-info
-              padding: 5px 5px 20px 0px; // padding: 0px 5px 0px 90px;
-              margin: 0 auto;
+            p {
+                display: -webkit-box;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                @include if-is-tablet {
+                    font-size: 20px;
+                }
+                @include if-is-desktop {
+                    font-size: 20px;
+                }
             }
-          }
-          
-          p {
-            
-            display: -webkit-box;
-            overflow : hidden;
-            text-overflow: ellipsis;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-
-            @include if-is-tablet {
-              font-size: 20px;
-            }
-
-            @include if-is-desktop {
-              font-size: 20px;
-            }
-            
-          }
-
         }
     }
-
     .custom-image {
-      display:block;
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 80%;
-      max-height: 150px;
-      @include if-is-tablet{
-        
-        
-        display:block;
-        max-width: 60%;
-        max-height: 600px;
-
-      }
-      @include if-is-desktop{
-        
-        display:block;
-        max-width: 100%;
-        max-height: 400px;
-
-        
-        
-      }
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 80%;
+        max-height: 150px;
+        @include if-is-tablet {
+            display: block;
+            max-width: 60%;
+            max-height: 600px;
+        }
+        @include if-is-desktop {
+            display: block;
+            max-width: 100%;
+            max-height: 400px;
+        }
     }
-
     .article-footer {
-      width:100%;
-      padding:10px;
-      
-      a {
-        float: right;
-        margin-right: 20px;
-
-      }
-
-      @include if-is-phone {
-        font-size: 80%;
-      }
-      .picture {
-
-          width: 60px;
-          float: left;
-          margin-right: 5px;
-          border-radius: 50%;
-          @include if-is-tablet{
-            width:90px;
-          }
-          @include if-is-desktop{
-            width:120px;
+        width: 100%;
+        padding: 10px;
+        a {
+            float: right;
             margin-right: 20px;
-
-          }
-          
+        }
+        @include if-is-phone {
+            font-size: 80%;
+        }
+        .picture {
+            width: 60px;
+            float: left;
+            margin-right: 5px;
+            border-radius: 50%;
+            @include if-is-tablet {
+                width: 90px;
+            }
+            @include if-is-desktop {
+                width: 120px;
+                margin-right: 20px;
+            }
+        }
+        .published-author {
+            padding-top: 4%;
+            @include if-is-tablet {
+                padding-top: 0;
+                margin-top: 3%;
+            }
+            @include if-is-desktop {
+                margin-top: 4%;
+            }
+        }
+        &.bookmarked {
+            .show-bookmark {
+                display: block;
+            }
+        }
+        .bookmark-button-1 {
+            margin-left: 55%;
+            position: absolute;
+            display: block;
+            @include if-is-tablet {
+                margin-left: 30%;
+            }
+            @include if-is-desktop {
+                margin-left: 290px;
+            }
+        }
+        .bookmark-button-2 {
+            margin-left: 55%;
+            position: absolute;
+            display: none;
+            @include if-is-tablet {
+                margin-left: 30%;
+            }
+            @include if-is-desktop {
+                // margin-right: auto;
+                margin-left: 290px;
+            }
         }
     }
 }
-
-
 
 // .user-info{
 //   position:absolute;
@@ -172,4 +165,3 @@
 //   height: 300px;
 //   width: 90px;
 // }
-

@@ -13,10 +13,14 @@ module.exports = {
                 for (var i in response) {
                     var comment = response[i];
 
+                    var first_name = comment.first_name || '';
+                    var last_name = comment.last_name || '';
+                    var comment_text = comment.comment_text || '';
+
                     var html = '<article class="comment-article">';
-                    html += '<div class="comment-author" >' + utils.escapeHTML(comment.first_name);
-                    html += ' ' + utils.escapeHTML(comment.last_name) + '</div>';
-                    html += '<div class="comment-author-text" >' + utils.escapeHTML(comment.comment_text) + '</div>';
+                    html += '<div class="comment-author" >' + utils.escapeHTML(first_name);
+                    html += ' ' + utils.escapeHTML(last_name) + '</div>';
+                    html += '<div class="comment-author-text" >' + utils.escapeHTML(comment_text) + '</div>';
                     html += '<div class="published-date">' + 'date' + '</div>';
                     html += '</article>'
                     $('.comment-section').append(html);

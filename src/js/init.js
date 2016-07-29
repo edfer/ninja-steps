@@ -1,3 +1,3 @@
-var publish = require('./publish');
+var publishComment = require('./publish-comment');
 
-publish.load();
+publishComment.load();

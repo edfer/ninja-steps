@@ -10083,12 +10083,133 @@ $('a').on('click', function(){
 	
 });
 },{"jquery":1}],3:[function(require,module,exports){
+var $ = require('jquery');
+
+module.exports = {
+
+    load: function() {
+
+    	
+
+        $.ajax({
+            url: '/api/bookmarks/?_order=id',
+            success: function(response) {
+
+            	for (var i in response) {
+            		var myBookmarks = response[i];
+            	}
+
+                var local = myBookmarks.selected;
+
+                localStorage.setItem('', local);
+            },
+
+            error: function(response){
+            	console.error('error', response);
+            },
+            complete: function(){
+            	// localStorage.setItem('bookmarked', local);
+            }
+
+        });
+    }
+}
+
+},{"jquery":1}],4:[function(require,module,exports){
 require('./form');
 require('./add-comment');
 require('./init');
-},{"./add-comment":2,"./form":4,"./init":5}],4:[function(require,module,exports){
+require('./bookmark-event');
+},{"./add-comment":2,"./bookmark-event":5,"./form":6,"./init":7}],5:[function(require,module,exports){
 var $ = require('jquery');
-var publish = require('./publish'); 
+var addingBookmark = require('./adding-bookmark');
+
+
+var bookmarked = $('.bookmark-button-2');
+var unbookmark = $('.bookmark-button-1');
+
+$('.bookmark-div').on('click', unbookmark, function(){
+
+	var articleId = $(this).parents('.published-item').data('id');
+
+	var myBookmarks =[];
+
+	$(myBookmarks).add(articleId);
+
+	for (var i in myBookmarks){
+		myBookmarks = myBookmarks[i]
+	}
+
+	localStorage.setItem('bookmarked', myBookmarks[i]);
+
+	// START AJAX EXPERIMENT
+
+	// var myBookmarks = {
+	// 	selected: articleId
+	// };
+
+	// $.ajax({
+	// 	url: '/api/bookmarks/',
+	// 	method: 'post',
+	// 	data: myBookmarks,
+
+	// 	success: function(response){
+	// 		addingBookmark.load();
+	// 		localStorage.setItem('bookmarked', myBookmarks.selected);
+	// 		alert('bookmark added');
+	// 	},
+	// 	error: function(){
+	// 		console.error('error', arguments)
+	// 	}
+	// })
+
+	// END AJAX EXPERIMENT
+
+	// var myBookmarks = {};
+
+	// var articleId = $(this).parents('.published-item').data('id');
+	// localStorage.setItem('bookmarked', articleId);
+	// console.log('article bookmarked', articleId);
+
+	// $(myBookmarks).data('myBookmarks', {'selected': articleId});
+	// console.log(myBookmarks);
+
+
+	// $('footer').toggleClass('bookmarked');
+	// console.log('pulsando');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Plan B
+// $('.bookmark-div').on('click', function() {
+//     $(this).find('.bookmark-button-1').attr('src', 'src/img/bookmark-filled-20px.png');
+// });
+
+// Plan C
+// $('.published-item').on('click', '.bookmark-button-1', function() {
+//     $(this).attr('src', 'src/img/bookmark-filled-20px.png');
+   
+// });
+
+
+// Plan D
+// $('.bookmark-div').on('click', function() {
+//     $(this).find('.bookmark-button-2').css('display', 'block');
+// });
+},{"./adding-bookmark":3,"jquery":1}],6:[function(require,module,exports){
+var $ = require('jquery');
+var publishComment = require('./publish-comment'); 
 
 $('.new-comment-form').on('submit', function(){
 	
@@ -10135,7 +10256,7 @@ $('.new-comment-form').on('submit', function(){
 			console.log('success', response);
 			$('form')[0].reset();
 			$('#first-name').focus();
-			publish.load();
+			publishComment.load();
 		},
 		error: function(){
 			console.error('error', arguments);
@@ -10148,11 +10269,11 @@ $('.new-comment-form').on('submit', function(){
 
 	return false;
 });
-},{"./publish":6,"jquery":1}],5:[function(require,module,exports){
-var publish = require('./publish');
+},{"./publish-comment":8,"jquery":1}],7:[function(require,module,exports){
+var publishComment = require('./publish-comment');
 
-publish.load();
-},{"./publish":6}],6:[function(require,module,exports){
+publishComment.load();
+},{"./publish-comment":8}],8:[function(require,module,exports){
 var $ = require('jquery');
 var utils = require('./utils');
 
@@ -10168,10 +10289,14 @@ module.exports = {
                 for (var i in response) {
                     var comment = response[i];
 
+                    var first_name = comment.first_name || '';
+                    var last_name = comment.last_name || '';
+                    var comment_text = comment.comment_text || '';
+
                     var html = '<article class="comment-article">';
-                    html += '<div class="comment-author" >' + utils.escapeHTML(comment.first_name);
-                    html += ' ' + utils.escapeHTML(comment.last_name) + '</div>';
-                    html += '<div class="comment-author-text" >' + utils.escapeHTML(comment.comment_text) + '</div>';
+                    html += '<div class="comment-author" >' + utils.escapeHTML(first_name);
+                    html += ' ' + utils.escapeHTML(last_name) + '</div>';
+                    html += '<div class="comment-author-text" >' + utils.escapeHTML(comment_text) + '</div>';
                     html += '<div class="published-date">' + 'date' + '</div>';
                     html += '</article>'
                     $('.comment-section').append(html);
@@ -10184,7 +10309,7 @@ module.exports = {
     }
 }
 
-},{"./utils":7,"jquery":1}],7:[function(require,module,exports){
+},{"./utils":9,"jquery":1}],9:[function(require,module,exports){
 var $ = require('jquery');
 
 module.exports = {
@@ -10192,4 +10317,4 @@ module.exports = {
 	return $('<div>').text(str).html();
 	}
 }
-},{"jquery":1}]},{},[3]);
+},{"jquery":1}]},{},[4]);
