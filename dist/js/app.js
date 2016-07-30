@@ -10084,104 +10084,124 @@ $('a').on('click', function(){
 });
 },{"jquery":1}],3:[function(require,module,exports){
 var $ = require('jquery');
+var bookmarkEvent = require('./bookmark-event');
 
-module.exports = {
 
-    load: function() {
+bookmarkEvent.setBookmark();
+
+
+// START AJAX EXPERIMENT
+// module.exports = {
+
+//     load: function() {
 
     	
 
-        $.ajax({
-            url: '/api/bookmarks/?_order=id',
-            success: function(response) {
+//         $.ajax({
+//             url: '/api/bookmarks/?_order=id',
+//             success: function(response) {
 
-            	for (var i in response) {
-            		var myBookmarks = response[i];
-            	}
+//             	for (var i in response) {
+//             		var myBookmarks = response[i];
+//             	}
 
-                var local = myBookmarks.selected;
+//                 var local = myBookmarks.selected;
 
-                localStorage.setItem('', local);
-            },
+//                 localStorage.setItem('', local);
+//             },
 
-            error: function(response){
-            	console.error('error', response);
-            },
-            complete: function(){
-            	// localStorage.setItem('bookmarked', local);
+//             error: function(response){
+//             	console.error('error', response);
+//             },
+//             complete: function(){
+//             	// localStorage.setItem('bookmarked', local);
+//             }
+
+//         });
+//     }
+// }
+// END AJAX EXPERIMENT
+},{"./bookmark-event":5,"jquery":1}],4:[function(require,module,exports){
+require('./form');
+require('./add-comment');
+require('./init');
+require('./bookmark-event');
+require('./adding-bookmark');
+},{"./add-comment":2,"./adding-bookmark":3,"./bookmark-event":5,"./form":6,"./init":7}],5:[function(require,module,exports){
+var $ = require('jquery');
+
+
+
+
+
+module.exports = {
+
+    setBookmark: function() {
+
+    	var toBookmark = $('.bookmark-button-1');
+		var toUnbookmark = $('.bookmark-button-2');
+
+        $('.bookmark-div').on('click', toBookmark, function() {
+
+            var articleId = $(this).parents('.published-item').data('id');
+
+            var myBookmarks = [];
+
+            myBookmarks.push(articleId);
+
+            for (var i in myBookmarks) {
+                myBookmarkedItem = myBookmarks[i]
             }
+
+            localStorage.setItem(myBookmarkedItem, 'bookmarked');
+
+            $(this).parents('footer').addClass('bookmarked-in-css');
+
+            // $(this).find('.bookmark-button-2').css('display', 'block');
+
 
         });
     }
 }
 
-},{"jquery":1}],4:[function(require,module,exports){
-require('./form');
-require('./add-comment');
-require('./init');
-require('./bookmark-event');
-},{"./add-comment":2,"./bookmark-event":5,"./form":6,"./init":7}],5:[function(require,module,exports){
-var $ = require('jquery');
-var addingBookmark = require('./adding-bookmark');
 
-
-var bookmarked = $('.bookmark-button-2');
-var unbookmark = $('.bookmark-button-1');
-
-$('.bookmark-div').on('click',  function(){
-
-	var articleId = $(this).parents('.published-item').data('id');
-
-	var myBookmarks =[];
-
-	myBookmarks.push(articleId);
-
-	for (var i in myBookmarks){
-		myBookmarkedItem = myBookmarks[i]
-	}
-
-	localStorage.setItem(myBookmarkedItem, 'bookmarked');
-
-	$(this).find('.bookmark-button-2').css('display', 'block');
-
-});
 // });
 
-	// START AJAX EXPERIMENT
+// START AJAX EXPERIMENT
 
-	// var myBookmarks = {
-	// 	selected: articleId
-	// };
+// var myBookmarks = {
+// 	selected: articleId
+// };
 
-	// $.ajax({
-	// 	url: '/api/bookmarks/',
-	// 	method: 'post',
-	// 	data: myBookmarks,
+// $.ajax({
+// 	url: '/api/bookmarks/',
+// 	method: 'post',
+// 	data: myBookmarks,
 
-	// 	success: function(response){
-	// 		addingBookmark.load();
-	// 		localStorage.setItem('bookmarked', myBookmarks.selected);
-	// 		alert('bookmark added');
-	// 	},
-	// 	error: function(){
-	// 		console.error('error', arguments)
-	// 	}
-	// })
+// 	success: function(response){
+// 		addingBookmark.load();
+// 		localStorage.setItem('bookmarked', myBookmarks.selected);
+// 		alert('bookmark added');
+// 	},
+// 	error: function(){
+// 		console.error('error', arguments)
+// 	}
+// })
 
-	// END AJAX EXPERIMENT
+// END AJAX EXPERIMENT
 
-	// var myBookmarks = {};
+// var myBookmarks = {};
 
-	// var articleId = $(this).parents('.published-item').data('id');
-	// localStorage.setItem('bookmarked', articleId);
-	// console.log('article bookmarked', articleId);
+// var articleId = $(this).parents('.published-item').data('id');
+// localStorage.setItem('bookmarked', articleId);
+// console.log('article bookmarked', articleId);
 
-	// $(myBookmarks).data('myBookmarks', {'selected': articleId});
-	// console.log(myBookmarks);
+// $(myBookmarks).data('myBookmarks', {'selected': articleId});
+// console.log(myBookmarks);
 
 
-	// $('footer').toggleClass('bookmarked');
-	// console.log('pulsando');
+// $('footer').toggleClass('bookmarked');
+// console.log('pulsando');
 
 
 
@@ -10204,7 +10224,7 @@ $('.bookmark-div').on('click',  function(){
 // Plan C
 // $('.published-item').on('click', '.bookmark-button-1', function() {
 //     $(this).attr('src', 'src/img/bookmark-filled-20px.png');
-   
+
 // });
 
 
@@ -10212,7 +10232,8 @@ $('.bookmark-div').on('click',  function(){
 // $('.bookmark-div').on('click', function() {
 //     $(this).find('.bookmark-button-2').css('display', 'block');
 // });
-},{"./adding-bookmark":3,"jquery":1}],6:[function(require,module,exports){
+
+},{"jquery":1}],6:[function(require,module,exports){
 var $ = require('jquery');
 var publishComment = require('./publish-comment'); 
 

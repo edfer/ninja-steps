@@ -312,7 +312,7 @@ form {
       @media all and (min-width: 1026px) {
         .published-list .article-footer .published-author {
           margin-top: 4%; } }
-    .published-list .article-footer.bookmarked .show-bookmark {
+    .published-list .article-footer.bookmarked-in-css .show-bookmark {
       display: block; }
     .published-list .article-footer .bookmark-button-1 {
       margin-left: 55%;

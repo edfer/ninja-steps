@@ -1,64 +1,77 @@
 var $ = require('jquery');
-var addingBookmark = require('./adding-bookmark');
 
 
-var bookmarked = $('.bookmark-button-2');
-var unbookmark = $('.bookmark-button-1');
 
-$('.bookmark-div').on('click',  function(){
 
-	var articleId = $(this).parents('.published-item').data('id');
 
-	var myBookmarks =[];
+module.exports = {
 
-	myBookmarks.push(articleId);
+    setBookmark: function() {
 
-	for (var i in myBookmarks){
-		myBookmarkedItem = myBookmarks[i]
-	}
+    	var toBookmark = $('.bookmark-button-1');
+		var toUnbookmark = $('.bookmark-button-2');
 
-	localStorage.setItem(myBookmarkedItem, 'bookmarked');
+        $('.bookmark-div').on('click', toBookmark, function() {
 
-	$(this).find('.bookmark-button-2').css('display', 'block');
+            var articleId = $(this).parents('.published-item').data('id');
 
-});
+            var myBookmarks = [];
+
+            myBookmarks.push(articleId);
+
+            for (var i in myBookmarks) {
+                myBookmarkedItem = myBookmarks[i]
+            }
+
+            localStorage.setItem(myBookmarkedItem, 'bookmarked');
+
+            $(this).parents('footer').addClass('bookmarked-in-css');
+
+            // $(this).find('.bookmark-button-2').css('display', 'block');
+
+
+        });
+    }
+}
+
+
 // });
 
-	// START AJAX EXPERIMENT
+// START AJAX EXPERIMENT
 
-	// var myBookmarks = {
-	// 	selected: articleId
-	// };
+// var myBookmarks = {
+// 	selected: articleId
+// };
 
-	// $.ajax({
-	// 	url: '/api/bookmarks/',
-	// 	method: 'post',
-	// 	data: myBookmarks,
+// $.ajax({
+// 	url: '/api/bookmarks/',
+// 	method: 'post',
+// 	data: myBookmarks,
 
-	// 	success: function(response){
-	// 		addingBookmark.load();
-	// 		localStorage.setItem('bookmarked', myBookmarks.selected);
-	// 		alert('bookmark added');
-	// 	},
-	// 	error: function(){
-	// 		console.error('error', arguments)
-	// 	}
-	// })
+// 	success: function(response){
+// 		addingBookmark.load();
+// 		localStorage.setItem('bookmarked', myBookmarks.selected);
+// 		alert('bookmark added');
+// 	},
+// 	error: function(){
+// 		console.error('error', arguments)
+// 	}
+// })
 
-	// END AJAX EXPERIMENT
+// END AJAX EXPERIMENT
 
-	// var myBookmarks = {};
+// var myBookmarks = {};
 
-	// var articleId = $(this).parents('.published-item').data('id');
-	// localStorage.setItem('bookmarked', articleId);
-	// console.log('article bookmarked', articleId);
+// var articleId = $(this).parents('.published-item').data('id');
+// localStorage.setItem('bookmarked', articleId);
+// console.log('article bookmarked', articleId);
 
-	// $(myBookmarks).data('myBookmarks', {'selected': articleId});
-	// console.log(myBookmarks);
+// $(myBookmarks).data('myBookmarks', {'selected': articleId});
+// console.log(myBookmarks);
 
 
-	// $('footer').toggleClass('bookmarked');
-	// console.log('pulsando');
+// $('footer').toggleClass('bookmarked');
+// console.log('pulsando');
 
 
 
@@ -81,7 +94,7 @@ $('.bookmark-div').on('click',  function(){
 // Plan C
 // $('.published-item').on('click', '.bookmark-button-1', function() {
 //     $(this).attr('src', 'src/img/bookmark-filled-20px.png');
-   
+
 // });
 
 
