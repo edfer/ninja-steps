@@ -14289,10 +14289,10 @@ $(document).ready(function() {
 
     
 
-    for (var i = 0; i < localStorage.length; i++) {
-        getArticleId = localStorage.getItem(localStorage.key(i));
+    // for (var i = 0; i < localStorage.length; i++) {
+    //     getArticleId = localStorage.getItem(localStorage.key(i));
         
-    }
+    // }
 
     // for (var i = 0; i < localStorage.length; i++) {
     //     getArticleId = localStorage.getItem(localStorage.key(i));
