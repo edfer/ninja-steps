@@ -4,26 +4,26 @@ var bookmarkEvent = require('./bookmark-event');
 
 bookmarkEvent.setBookmark();
 
-// $(document).ready(function() {
+$(document).ready(function() {
 
-//     var get = $('article')[0].data('id');
+    
 
-//     for (var i = 0; i < localStorage.length; i++) {
-//         getArticleId = localStorage.getItem(localStorage.key(i));
+    for (var i = 0; i < localStorage.length; i++) {
+        getArticleId = localStorage.getItem(localStorage.key(i));
         
-//     }
+    }
 
-//     for (var i = 0; i < localStorage.length; i++) {
-//         getArticleId = localStorage.getItem(localStorage.key(i));
-//         if (getArticleId == get) {
+    // for (var i = 0; i < localStorage.length; i++) {
+    //     getArticleId = localStorage.getItem(localStorage.key(i));
+    //     if (getArticleId == get) {
 
-//             $('article').data('getArticleId').addClass('bookmarked-in-css');
-//         }
-//     }
+    //         $('article').data('getArticleId').addClass('bookmarked-in-css');
+    //     }
+    // }
 
 
 
-// });
+});
 
 
 

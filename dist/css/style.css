@@ -329,6 +329,9 @@ form {
             font-size: 30px;
             padding: 5px 5px 20px 0px;
             margin: 0 auto; } }
+        .published-list .published-item .lead h4 a {
+          text-decoration: none;
+          color: #333; }
       .published-list .published-item .lead p {
         display: -webkit-box;
         overflow: hidden;
@@ -390,7 +393,7 @@ form {
     .published-list .article-footer.bookmarked-in-css .show-bookmark {
       display: block; }
     .published-list .article-footer .bookmark-button-1 {
-      margin-left: 45%;
+      margin-left: 50%;
       position: absolute;
       margin-top: -40px;
       display: block; }
@@ -401,7 +404,7 @@ form {
         .published-list .article-footer .bookmark-button-1 {
           margin-left: 290px; } }
     .published-list .article-footer .bookmark-button-2 {
-      margin-left: 45%;
+      margin-left: 50%;
       position: absolute;
       margin-top: -40px;
       display: none; }
