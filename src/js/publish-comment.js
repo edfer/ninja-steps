@@ -2,13 +2,13 @@ var $ = require('jquery');
 var utils = require('./utils');
 var moment = require('moment');
 
-moment().format("MM-DD-YYYY");
+moment().format();
 
 module.exports = {
     load: function() {
 
         $.ajax({
-            url: '/api/comments/?_order=id',
+            url: '/api/comments/?_order=-id',
             success: function(response) {
 
                 $('.comment-section').html('');
@@ -23,15 +23,17 @@ module.exports = {
                     //setting the date
                     moment.locale('es');
                     var date_diff = moment(new Date(comment.date)).fromNow();
-                    console.log(date_diff);
+                    // console.log(date_diff);
 
                     var html = '<article class="comment-article">';
                     html += '<div class="comment-author" >' + utils.escapeHTML(first_name);
-                    html += ' ' + utils.escapeHTML(last_name) +'</div>';
+                    html += ' ' + utils.escapeHTML(last_name) + '</div>';
                     html += '<div class="comment-author-text" >' + utils.escapeHTML(comment_text) + '</div>';
                     html += '<div class="published-date"><em>' + 'Posted: ' + date_diff + '</em></div>';
                     html += '</article>'
                     $('.comment-section').append(html);
+
+                    
                 }
             },
             error: function(response) {

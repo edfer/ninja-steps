@@ -2,7 +2,7 @@ var $ = require('jquery');
 var publishComment = require('./publish-comment'); 
 var moment = require('moment');
 
-moment().format("MM-DD-YYYY");
+moment().format();
 
 $('.new-comment-form').on('submit', function(){
 	
@@ -34,7 +34,7 @@ $('.new-comment-form').on('submit', function(){
 		first_name: $('#first-name').val(),
 		last_name: $('#last-name').val(),
 		comment_text: $('#comment-text').val(),
-		date: moment()
+		date: new Date()
 
 	};
 
@@ -47,10 +47,9 @@ $('.new-comment-form').on('submit', function(){
 			$('.new-comment-form button').text('subiendo comentario...').attr('disabled', true);
 		},
 		success: function(response){
-			console.log('success', response);
+			// console.log('success', response);
 			$('form')[0].reset();
 			$('#first-name').focus();
-			// $('.published-date').html(Date());
 			publishComment.load();
 		},
 		error: function(){

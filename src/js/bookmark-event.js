@@ -11,7 +11,7 @@ module.exports = {
         var toBookmark = $('.bookmark-button-1');
         var toUnbookmark = $('.bookmark-button-2');
 
-        $('.bookmark-div').on('click', toBookmark, function() {
+        $(toBookmark).on('click', function() {
 
             var articleId = $(this).parents('.published-item').data('id');
 
@@ -21,19 +21,22 @@ module.exports = {
 
             for (var i in myBookmarks) {
                 myBookmarkedItem = myBookmarks[i]
+
+
+                localStorage.setItem(myBookmarkedItem, 'bookmarked');
+
+
+                $(this).parents('footer').addClass(localStorage.getItem(myBookmarkedItem) + '-in-css');
             }
-
-            localStorage.setItem(myBookmarkedItem, 'bookmarked');
-
-
-            $(this).parents('footer').addClass(localStorage.getItem(myBookmarkedItem) + '-in-css');
-
             // $(this).find('.bookmark-button-2').css('display', 'block');
 
 
         });
     }
+
 }
+
+
 
 
 // });
