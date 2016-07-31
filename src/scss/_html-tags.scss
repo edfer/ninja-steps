@@ -14,6 +14,47 @@ body {
             }
         }
     }
+    &.show-menu-background {
+        .web-header {
+            height: 280px;
+            @include if-is-desktop {
+                height: 50px;
+            }
+            .menu-open {
+                list-style-type: none;
+                position: absolute;
+                margin-top: 30px;
+                margin-left: 40%;
+                margin-right: auto;
+                font-size: 0;
+                padding:0px;
+				
+				@include if-is-tablet {
+					margin-left: 45%;
+				}
+
+                @include if-is-desktop {
+                	position: relative;
+                    float: right;
+                    margin: 5px 0px 0px 0px;
+                }
+                .menu-item-open {
+                    display: block;
+                    font-size: $font-size-base;
+                    transition: 0.2s;
+                    @include if-is-desktop {
+                        display: inline-block;
+                        font-size: $font-size-base;
+                    }
+                    a {
+                        padding: 10px 8px;
+                        text-decoration: none;
+                        color: $color-light-blue;
+                    }
+                }
+            }
+        }
+    }
 }
 
 img,

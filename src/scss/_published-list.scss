@@ -64,6 +64,7 @@
                 }
             }
             p {
+                
                 display: -webkit-box;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -134,8 +135,9 @@
             }
         }
         .bookmark-button-1 {
-            margin-left: 55%;
+            margin-left: 45%;
             position: absolute;
+            margin-top: -40px;
             display: block;
             @include if-is-tablet {
                 margin-left: 30%;
@@ -145,8 +147,9 @@
             }
         }
         .bookmark-button-2 {
-            margin-left: 55%;
+            margin-left: 45%;
             position: absolute;
+            margin-top: -40px;
             display: none;
             @include if-is-tablet {
                 margin-left: 30%;

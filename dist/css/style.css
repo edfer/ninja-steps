@@ -16,7 +16,8 @@
   background: #0F2F50;
   color: #74C2C3;
   text-align: center;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  transition: all 0.2s; }
   @media all and (min-width: 1026px) {
     .web-header .container-header {
       width: 1025px;
@@ -24,27 +25,30 @@
   .web-header .web-title {
     font-size: 18px;
     text-shadow: 1px 1px 0px black;
-    padding: 2px; }
+    padding-top: 2px; }
     @media all and (min-width: 1026px) {
       .web-header .web-title {
         float: left;
         padding: 2px 0px 0px 20px; } }
   .web-header .menu {
+    position: relative;
     list-style-type: none;
     float: right;
     margin: 5px 0px 0px 0px;
-    font-size: 0; }
+    font-size: 0;
+    padding: 0px; }
+    @media all and (min-width: 1026px) {
+      .web-header .menu {
+        position: relative; } }
     @media all and (min-width: 1026px) {
       .web-header .menu .menu-item {
         display: inline-block;
-        font-size: 14px; }
-        .web-header .menu .menu-item a {
-          display: inline-block;
-          padding: 10px 8px;
-          text-decoration: none;
-          color: #74C2C3; }
-        .web-header .menu .menu-item.active {
-          color: white; } }
+        font-size: 14px; } }
+    .web-header .menu .menu-item a {
+      display: inline-block;
+      padding: 10px 8px;
+      text-decoration: none;
+      color: #74C2C3; }
 
 @media all and (min-width: 1026px) {
   .container {
@@ -160,6 +164,39 @@ body {
     @media all and (min-width: 737px) {
       body.show-input-background .web-header {
         height: 50px; } }
+  body.show-menu-background .web-header {
+    height: 280px; }
+    @media all and (min-width: 1026px) {
+      body.show-menu-background .web-header {
+        height: 50px; } }
+    body.show-menu-background .web-header .menu-open {
+      list-style-type: none;
+      position: absolute;
+      margin-top: 30px;
+      margin-left: 40%;
+      margin-right: auto;
+      font-size: 0;
+      padding: 0px; }
+      @media all and (min-width: 737px) {
+        body.show-menu-background .web-header .menu-open {
+          margin-left: 45%; } }
+      @media all and (min-width: 1026px) {
+        body.show-menu-background .web-header .menu-open {
+          position: relative;
+          float: right;
+          margin: 5px 0px 0px 0px; } }
+      body.show-menu-background .web-header .menu-open .menu-item-open {
+        display: block;
+        font-size: 14px;
+        transition: 0.2s; }
+        @media all and (min-width: 1026px) {
+          body.show-menu-background .web-header .menu-open .menu-item-open {
+            display: inline-block;
+            font-size: 14px; } }
+        body.show-menu-background .web-header .menu-open .menu-item-open a {
+          padding: 10px 8px;
+          text-decoration: none;
+          color: #74C2C3; }
 
 img,
 embed,
@@ -353,8 +390,9 @@ form {
     .published-list .article-footer.bookmarked-in-css .show-bookmark {
       display: block; }
     .published-list .article-footer .bookmark-button-1 {
-      margin-left: 55%;
+      margin-left: 45%;
       position: absolute;
+      margin-top: -40px;
       display: block; }
       @media all and (min-width: 737px) {
         .published-list .article-footer .bookmark-button-1 {
@@ -363,8 +401,9 @@ form {
         .published-list .article-footer .bookmark-button-1 {
           margin-left: 290px; } }
     .published-list .article-footer .bookmark-button-2 {
-      margin-left: 55%;
+      margin-left: 45%;
       position: absolute;
+      margin-top: -40px;
       display: none; }
       @media all and (min-width: 737px) {
         .published-list .article-footer .bookmark-button-2 {
@@ -375,16 +414,30 @@ form {
 
 .comment-section {
   display: flex;
-  flex-direction: column;
-  border: 1px solid blue; }
+  flex-direction: column; }
   .comment-section .comment-article {
-    border: 1px solid red;
-    padding: 10px; }
+    background-color: #d6e394;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0px 10px 10px 10px; }
     .comment-section .comment-article .comment-author {
+      text-align: center;
+      border-radius: 10px;
       text-transform: uppercase;
-      flex-direction: row; }
+      flex-direction: row;
+      background-color: #f5f8e5;
+      width: 100%;
+      margin-bottom: 10px; }
+    .comment-section .comment-article .comment-author-text {
+      margin-bottom: 10px;
+      border-radius: 10px;
+      padding: 2px 8px 5px 8px;
+      background-color: #f5f8e5; }
+    .comment-section .comment-article .published-date {
+      float: right; }
 
 .search {
+  z-index: 99;
   float: left;
   margin-top: 0px;
   margin-left: 10px; }
@@ -396,12 +449,14 @@ form {
   @media all and (max-width: 736px) {
     .search.show-input input, .search.show-input button {
       margin-top: 50px;
-      margin-left: 12%;
-      display: inline-block; } }
+      margin-left: 5px;
+      display: inline-block;
+      transition: 0.2s; } }
   @media all and (min-width: 737px) {
     .search.show-input input, .search.show-input button {
       margin-top: -3px;
-      display: inline-block; } }
+      display: inline-block;
+      transition: 0.2s; } }
   @media all and (min-width: 1026px) {
     .search.show-input input, .search.show-input button {
       margin-top: 5px;
@@ -410,13 +465,14 @@ form {
     float: left; }
     @media all and (min-width: 1026px) {
       .search .icon-search {
-        margin-top: 10px; } }
+        margin-top: 10px;
+        margin-right: 10px; } }
   .search input, .search button {
     position: absolute;
     margin-top: -50px;
     float: right;
     width: 160px;
-    margin-left: 10px; }
+    margin-left: 5px; }
     @media all and (min-width: 1026px) {
       .search input, .search button {
         margin-top: 5px;

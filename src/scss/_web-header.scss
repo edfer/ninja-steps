@@ -13,6 +13,7 @@ $web-header-color: $color-light-blue;
     color: $web-header-color;
     text-align: center;
     text-transform: uppercase;
+    transition: all 0.2s;
     @include if-is-desktop {
         .container-header {
             width: 1025px;
@@ -22,31 +23,36 @@ $web-header-color: $color-light-blue;
     .web-title {
         font-size: $font-size-base + 4px;
         text-shadow: 1px 1px 0px darken($web-header-color, 70%);
-        padding: 2px;
+        padding-top: 2px;
         @include if-is-desktop {
             float: left;
             padding: 2px 0px 0px 20px;
+
         }
     }
     .menu {
+        position:relative;
         list-style-type: none;
         float: right;
         margin: 5px 0px 0px 0px;
         font-size: 0;
+        padding:0px;
         @include if-is-desktop {
-            .menu-item {
+            position:relative;
+        }
+        .menu-item {
+            @include if-is-desktop {
+
                 display: inline-block;
                 font-size: $font-size-base;
-                a {
-                    display: inline-block;
-                    padding: 10px 8px;
-                    text-decoration: none;
-                    color: $color-light-blue;
-                }
-                &.active {
-                    color: white;
-                }
+            }
+            a {
+                display: inline-block;
+                padding: 10px 8px;
+                text-decoration: none;
+                color: $color-light-blue;
             }
         }
     }
+    
 }

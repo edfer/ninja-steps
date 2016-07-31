@@ -1,7 +1,11 @@
 var $ = require('jquery');
 
 $('.icon-menu').on('click', function(){
-	// $('.search input').css('margin-top', '50px').css('z-index', '99');
+	$('.web-header ul').toggleClass('menu-open');
+	$('body').toggleClass('show-menu-background');
+
+	$('body').removeClass('show-input-background');
+	$('.search').removeClass('show-input');
 	console.log('clicked');
 });
 

@@ -1,6 +1,6 @@
 var $ = require('jquery');
 
-$('a').on('click', function(){
+$('.published-list-detail a').on('click', function(){
 	$('body').toggleClass('form-shown');
 	$('#first-name').focus();
 	
