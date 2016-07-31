@@ -7,14 +7,28 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
     <meta name="theme-color" content="#0F2F50">
     <link rel="stylesheet" type="text/css" href="dist/css/style.css">
+
 </head>
 
-<body class="form-shown container">
-    <header class="web-header">
-    <img class="icon-menu" src="src/img/icon-menu.png">
-    <img class="icon-search" src="src/img/icon-search.png">
-
-        <h1 class="web-title">noisey ninja steps</h1>
+<body class=" container">
+    <header class="web-header height-for-search">
+        <div class="container-header">
+            <img class="icon-menu" src="src/img/icon-menu.png">
+            
+            <ul class="menu">
+                <li class="menu-item active"><a href="#">Home</a></li>
+                <li class="menu-item"><a href="#">About</a></li>
+                <li class="menu-item"><a href="#">Menu</a></li>
+                <li class="menu-item"><a href="#">Contact</a></li>
+                <li class="menu-item"><a href="#">Menu</a></li>
+                <li class="menu-item"><a href="#">Contact</a></li>
+            </ul>
+            <div class="search show-input-background">
+                <img class="icon-search" src="src/img/icon-search.png">
+                <input type="text" name="search">
+            </div>
+            <h1 class="web-title">noisey ninja steps</h1>
+        </div>
     </header>
     <section class="published-list">
         <article class="published-item" data-id="1">
@@ -181,6 +195,7 @@
         </article>
     </section>
     <script src="dist/js/app.js"></script>
+
 </body>
 
 </html>

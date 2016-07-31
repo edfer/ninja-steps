@@ -10089,21 +10089,64 @@ var bookmarkEvent = require('./bookmark-event');
 
 bookmarkEvent.setBookmark();
 
+// $(document).ready(function() {
+
+//     var get = $('article')[0].data('id');
+
+//     for (var i = 0; i < localStorage.length; i++) {
+//         getArticleId = localStorage.getItem(localStorage.key(i));
+        
+//     }
+
+//     for (var i = 0; i < localStorage.length; i++) {
+//         getArticleId = localStorage.getItem(localStorage.key(i));
+//         if (getArticleId == get) {
+
+//             $('article').data('getArticleId').addClass('bookmarked-in-css');
+//         }
+//     }
+
+
+
+// });
+
+
+
+// var articleId = $('.bookmark-button-1').parents('.published-item').data('id');
+
+// var myBookmarks = [];
+
+// myBookmarks.push(articleId);
+
+// for (var i in myBookmarks) {
+//     myBookmarkedItem = myBookmarks[i]
+// }
+
+// var myBookmarkedItemValue = localStorage.getItem(myBookmarkedItem);
+
+// if (myBookmarkedItemValue == 'bookmarked') {
+//     $('.bookmark-div').parents('footer').addClass('bookmarked-in-css');
+// };
+
+
+
+
+
 
 // START AJAX EXPERIMENT
 // module.exports = {
 
 //     load: function() {
 
-    	
+
 
 //         $.ajax({
 //             url: '/api/bookmarks/?_order=id',
 //             success: function(response) {
 
-//             	for (var i in response) {
-//             		var myBookmarks = response[i];
-//             	}
+//              for (var i in response) {
+//                  var myBookmarks = response[i];
+//              }
 
 //                 var local = myBookmarks.selected;
 
@@ -10111,23 +10154,26 @@ bookmarkEvent.setBookmark();
 //             },
 
 //             error: function(response){
-//             	console.error('error', response);
+//              console.error('error', response);
 //             },
 //             complete: function(){
-//             	// localStorage.setItem('bookmarked', local);
+//              // localStorage.setItem('bookmarked', local);
 //             }
 
 //         });
 //     }
 // }
 // END AJAX EXPERIMENT
+
 },{"./bookmark-event":5,"jquery":1}],4:[function(require,module,exports){
 require('./form');
 require('./add-comment');
 require('./init');
 require('./bookmark-event');
 require('./adding-bookmark');
-},{"./add-comment":2,"./adding-bookmark":3,"./bookmark-event":5,"./form":6,"./init":7}],5:[function(require,module,exports){
+require('./search');
+require('./menu');
+},{"./add-comment":2,"./adding-bookmark":3,"./bookmark-event":5,"./form":6,"./init":7,"./menu":8,"./search":10}],5:[function(require,module,exports){
 var $ = require('jquery');
 
 
@@ -10138,8 +10184,8 @@ module.exports = {
 
     setBookmark: function() {
 
-    	var toBookmark = $('.bookmark-button-1');
-		var toUnbookmark = $('.bookmark-button-2');
+        var toBookmark = $('.bookmark-button-1');
+        var toUnbookmark = $('.bookmark-button-2');
 
         $('.bookmark-div').on('click', toBookmark, function() {
 
@@ -10155,7 +10201,8 @@ module.exports = {
 
             localStorage.setItem(myBookmarkedItem, 'bookmarked');
 
-            $(this).parents('footer').addClass('bookmarked-in-css');
+
+            $(this).parents('footer').addClass(localStorage.getItem(myBookmarkedItem) + '-in-css');
 
             // $(this).find('.bookmark-button-2').css('display', 'block');
 
@@ -10295,11 +10342,20 @@ $('.new-comment-form').on('submit', function(){
 
 	return false;
 });
-},{"./publish-comment":8,"jquery":1}],7:[function(require,module,exports){
+},{"./publish-comment":9,"jquery":1}],7:[function(require,module,exports){
 var publishComment = require('./publish-comment');
 
 publishComment.load();
-},{"./publish-comment":8}],8:[function(require,module,exports){
+},{"./publish-comment":9}],8:[function(require,module,exports){
+var $ = require('jquery');
+
+$('.icon-menu').on('click', function(){
+	// $('.search input').css('margin-top', '50px').css('z-index', '99');
+	console.log('clicked');
+});
+
+
+},{"jquery":1}],9:[function(require,module,exports){
 var $ = require('jquery');
 var utils = require('./utils');
 
@@ -10335,7 +10391,15 @@ module.exports = {
     }
 }
 
-},{"./utils":9,"jquery":1}],9:[function(require,module,exports){
+},{"./utils":11,"jquery":1}],10:[function(require,module,exports){
+var $ = require('jquery');
+
+$('.icon-search').on('click', function(){
+	$('.search').toggleClass('show-input');
+	$('body').toggleClass('show-input-background');
+	console.log('clicked');
+});
+},{"jquery":1}],11:[function(require,module,exports){
 var $ = require('jquery');
 
 module.exports = {

@@ -8,8 +8,8 @@ module.exports = {
 
     setBookmark: function() {
 
-    	var toBookmark = $('.bookmark-button-1');
-		var toUnbookmark = $('.bookmark-button-2');
+        var toBookmark = $('.bookmark-button-1');
+        var toUnbookmark = $('.bookmark-button-2');
 
         $('.bookmark-div').on('click', toBookmark, function() {
 
@@ -25,7 +25,8 @@ module.exports = {
 
             localStorage.setItem(myBookmarkedItem, 'bookmarked');
 
-            $(this).parents('footer').addClass('bookmarked-in-css');
+
+            $(this).parents('footer').addClass(localStorage.getItem(myBookmarkedItem) + '-in-css');
 
             // $(this).find('.bookmark-button-2').css('display', 'block');
 

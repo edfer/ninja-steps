@@ -1,12 +1,56 @@
-.icon-search{
-	float: left;
-	margin-top:10px;
-	margin-left:10px;
-	
+.search {
+    float: left;
+    margin-top: 0px;
+    margin-left: 10px;
+    @include if-is-desktop {
+        display: inline-block;
+        float: none;
+        margin-top: 3px;
+    }
+    &.show-input {
+        input {
+            @include if-is-phone {
+                margin-top: 50px;
+                margin-left:12%;
+                display: inline-block;
+
+            }
+            @include if-is-tablet {
+                margin-top: -3px;
+                display: inline-block;
+
+            }
+            @include if-is-desktop {
+                margin-top: 5px;
+            	display: inline-block;
+            }
+        }
+    }
+    .icon-search {
+        float: left;
+        @include if-is-desktop {
+            margin-top: 10px;
+        }
+    }
+    input {
+        position: absolute;
+        // display: none;
+        margin-top: -50px;
+        float: right;
+        width: 160px;
+        margin-left: 10px;
+        @include if-is-desktop {
+            margin-top: 5px;
+            display: inline-block;
+        }
+    }
 }
 
-.icon-menu{
-	float: right;
-	margin-top:10px;
-	margin-right:10px;
+.icon-menu {
+    float: right;
+    margin-top: 0px;
+    margin-right: 10px;
+    @include if-is-desktop {
+        display: none;
+    }
 }

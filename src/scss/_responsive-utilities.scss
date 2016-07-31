@@ -4,6 +4,12 @@
 	}
 }
 
+@mixin if-is-desktop-bar {
+	@media all and (min-width: #{$desktop-width -200px}){
+		@content;
+	}
+}
+
 @mixin if-is-tablet {
 	@media all and (min-width: #{$tablet-width}) {
 		@content;

@@ -1,22 +1,52 @@
 // Variables
 $web-header-background: $color-dark-blue;
 $web-header-color: $color-light-blue;
-
 // Styles
-
 .web-header {
-	top: 0px; left: 0px;
-	z-index: 99;
-	position: fixed;
-	width: 100%;
-	height:50px;
-	background: $web-header-background;
-	color: $web-header-color;
-	text-align: center;
-	text-transform: uppercase;
-	.web-title {
-		font-size: $font-size-base + 4px;
-		text-shadow: 1px 1px 0px darken($web-header-color, 70%);
-		padding: 2px;
-	}
+    top: 0px;
+    left: 0px;
+    z-index: 99;
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    background: $web-header-background;
+    color: $web-header-color;
+    text-align: center;
+    text-transform: uppercase;
+    @include if-is-desktop {
+        .container-header {
+            width: 1025px;
+            margin: 0 auto;
+        }
+    }
+    .web-title {
+        font-size: $font-size-base + 4px;
+        text-shadow: 1px 1px 0px darken($web-header-color, 70%);
+        padding: 2px;
+        @include if-is-desktop {
+            float: left;
+            padding: 2px 0px 0px 20px;
+        }
+    }
+    .menu {
+        list-style-type: none;
+        float: right;
+        margin: 5px 0px 0px 0px;
+        font-size: 0;
+        @include if-is-desktop {
+            .menu-item {
+                display: inline-block;
+                font-size: $font-size-base;
+                a {
+                    display: inline-block;
+                    padding: 10px 8px;
+                    text-decoration: none;
+                    color: $color-light-blue;
+                }
+                &.active {
+                    color: white;
+                }
+            }
+        }
+    }
 }

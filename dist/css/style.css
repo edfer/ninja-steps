@@ -17,10 +17,34 @@
   color: #74C2C3;
   text-align: center;
   text-transform: uppercase; }
+  @media all and (min-width: 1026px) {
+    .web-header .container-header {
+      width: 1025px;
+      margin: 0 auto; } }
   .web-header .web-title {
     font-size: 18px;
     text-shadow: 1px 1px 0px black;
     padding: 2px; }
+    @media all and (min-width: 1026px) {
+      .web-header .web-title {
+        float: left;
+        padding: 2px 0px 0px 20px; } }
+  .web-header .menu {
+    list-style-type: none;
+    float: right;
+    margin: 5px 0px 0px 0px;
+    font-size: 0; }
+    @media all and (min-width: 1026px) {
+      .web-header .menu .menu-item {
+        display: inline-block;
+        font-size: 14px; }
+        .web-header .menu .menu-item a {
+          display: inline-block;
+          padding: 10px 8px;
+          text-decoration: none;
+          color: #74C2C3; }
+        .web-header .menu .menu-item.active {
+          color: white; } }
 
 @media all and (min-width: 1026px) {
   .container {
@@ -131,11 +155,23 @@ body {
   font-size: 14px;
   margin: 0 auto;
   padding-top: 60px; }
+  body.show-input-background .web-header {
+    height: 110px; }
+    @media all and (min-width: 737px) {
+      body.show-input-background .web-header {
+        height: 50px; } }
 
-img, embed, object, video {
+img,
+embed,
+object,
+video {
   max-width: 100%; }
 
-label, input, button, button, textarea {
+label,
+input,
+button,
+button,
+textarea {
   display: block;
   width: 100%;
   box-sizing: border-box; }
@@ -145,13 +181,15 @@ label {
   font-weight: bold;
   text-transform: uppercase; }
 
-input, button, textarea {
+input, button,
+textarea {
   border: 1px solid #74C2C3;
   margin: 5px 0px 15px 0px;
   padding: 7px;
   font-size: 14px;
   border-radius: 5px; }
-  input:focus, button:focus, textarea:focus {
+  input:focus, button:focus,
+  textarea:focus {
     outline-color: #B7CD44;
     background: #fef1e0; }
 
@@ -346,12 +384,48 @@ form {
       text-transform: uppercase;
       flex-direction: row; }
 
-.icon-search {
+.search {
   float: left;
-  margin-top: 10px;
+  margin-top: 0px;
   margin-left: 10px; }
+  @media all and (min-width: 1026px) {
+    .search {
+      display: inline-block;
+      float: none;
+      margin-top: 3px; } }
+  @media all and (max-width: 736px) {
+    .search.show-input input, .search.show-input button {
+      margin-top: 50px;
+      margin-left: 12%;
+      display: inline-block; } }
+  @media all and (min-width: 737px) {
+    .search.show-input input, .search.show-input button {
+      margin-top: -3px;
+      display: inline-block; } }
+  @media all and (min-width: 1026px) {
+    .search.show-input input, .search.show-input button {
+      margin-top: 5px;
+      display: inline-block; } }
+  .search .icon-search {
+    float: left; }
+    @media all and (min-width: 1026px) {
+      .search .icon-search {
+        margin-top: 10px; } }
+  .search input, .search button {
+    position: absolute;
+    margin-top: -50px;
+    float: right;
+    width: 160px;
+    margin-left: 10px; }
+    @media all and (min-width: 1026px) {
+      .search input, .search button {
+        margin-top: 5px;
+        display: inline-block; } }
 
 .icon-menu {
   float: right;
-  margin-top: 10px;
+  margin-top: 0px;
   margin-right: 10px; }
+  @media all and (min-width: 1026px) {
+    .icon-menu {
+      display: none; } }

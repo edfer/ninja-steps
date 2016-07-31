@@ -1,70 +1,74 @@
 // @import "responsive-utilities";
-
 body {
-	background: $body-background-color;
-	color: $main-text-color;
-	font-family: $main-font-family;
-	font-size: $font-size-base;
-	margin: 0 auto;
-	padding-top: 60px;
+    background: $body-background-color;
+    color: $main-text-color;
+    font-family: $main-font-family;
+    font-size: $font-size-base;
+    margin: 0 auto;
+    padding-top: 60px;
+    &.show-input-background {
+        .web-header {
+            height: 110px;
+            @include if-is-tablet {
+                height: 50px;
+            }
+        }
+    }
 }
 
-img, embed, object, video {
-	max-width: 100%;
+img,
+embed,
+object,
+video {
+    max-width: 100%;
 }
 
-
-label, input, button, textarea {
-	display: block;
-	width:100%;
-	box-sizing: border-box;
+label,
+input,
+button,
+textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 label {
-	font-size:$font-size-sm;
-	font-weight: bold;
-	text-transform: uppercase;
+    font-size: $font-size-sm;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
-input, textarea {
-	border: 1px solid $color-light-blue;
-	margin: 5px 0px 15px 0px;
-	padding: 7px;
-	font-size: $font-size-base;
-	border-radius: 5px;
-	&:focus {
-		outline-color: $color-lemon-green;
-		background: lighten($color-light-orange, 25%);;
-	}
+input,
+textarea {
+    border: 1px solid $color-light-blue;
+    margin: 5px 0px 15px 0px;
+    padding: 7px;
+    font-size: $font-size-base;
+    border-radius: 5px;
+    &:focus {
+        outline-color: $color-lemon-green;
+        background: lighten($color-light-orange, 25%);
+        ;
+    }
 }
 
 button {
-	@extend input;
-	border: 1px solid darken($color-lemon-green, 10%);
-	background: lighten($color-lemon-green, 5%);
-	font-weight: bold;
-	text-transform: uppercase;
-	color: $color-dark-blue;
-	transition: all 0.25s;
-	&:hover {
-		background: darken($color-lemon-green, 10%);
-	}
-	&:active {
-		background: darken($color-lemon-green, 20%);
-		color: lighten($color-lemon-green, 30%);
-	}
+    @extend input;
+    border: 1px solid darken($color-lemon-green, 10%);
+    background: lighten($color-lemon-green, 5%);
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $color-dark-blue;
+    transition: all 0.25s;
+    &:hover {
+        background: darken($color-lemon-green, 10%);
+    }
+    &:active {
+        background: darken($color-lemon-green, 20%);
+        color: lighten($color-lemon-green, 30%);
+    }
 }
 
 *::selection {
-	background: $color-light-orange;
+    background: $color-light-orange;
 }
-
-
-
-
-
-
-
-
-
-
