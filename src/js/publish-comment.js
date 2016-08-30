@@ -13,7 +13,6 @@ module.exports = {
 
                 $('.comment-section').html('');
 
-                
 
                 for (var i in response) {
                     var comment = response[i];
@@ -36,33 +35,11 @@ module.exports = {
                     $('.comment-section').append(html);
 
 
-                   
-
-
-                    // console.log($(response).find('comment-article').length);
-                    // console.log(JSON.stringify(comment.id));
-                    console.log($(response).length);
-                    console.log(comment.id);
-
-                    // var count = '<div>' + ($('.comment-section').length) + '</div>';
-
-                    // console.log(count);
-
-                    $('.comments-link').prepend($(response).length);
-
-                    // for (i in comment) {
-                    //     var size = comment[i];
-
-                    //     var count = Object.keys(size).length;
-
-                    //     // console.log(count);
-                    // }
-
-                    
-
-
                 }
+                // console.log(response.length);
+                var count = '<div>' + (response.length) + '</div>';
 
+                $('.comments-link').prepend(count);
 
             },
             error: function(response) {
