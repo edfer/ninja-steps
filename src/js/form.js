@@ -51,6 +51,8 @@ $('.new-comment-form').on('submit', function(){
 			$('form')[0].reset();
 			$('#first-name').focus();
 			publishComment.load();
+			console.log(response.id);
+			console.log(response.length);
 		},
 		error: function(){
 			console.error('error', arguments);

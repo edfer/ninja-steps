@@ -14312,12 +14312,11 @@ unbookmarkEvent.unsetBookmark();
 require('./form');
 require('./add-comment');
 require('./init');
-require('./bookmark-event');
-require('./unbookmark-event');
 require('./adding-bookmark');
 require('./search');
 require('./menu');
-},{"./add-comment":3,"./adding-bookmark":4,"./bookmark-event":6,"./form":7,"./init":8,"./menu":9,"./search":11,"./unbookmark-event":12}],6:[function(require,module,exports){
+ 
+},{"./add-comment":3,"./adding-bookmark":4,"./form":7,"./init":8,"./menu":9,"./search":11}],6:[function(require,module,exports){
 var $ = require('jquery');
 
 
@@ -14481,6 +14480,8 @@ $('.new-comment-form').on('submit', function(){
 			$('form')[0].reset();
 			$('#first-name').focus();
 			publishComment.load();
+			console.log(response.id);
+			console.log(response.length);
 		},
 		error: function(){
 			console.error('error', arguments);
@@ -14488,7 +14489,6 @@ $('.new-comment-form').on('submit', function(){
 		complete: function(){
 			$(inputs).attr('disabled', false);
 			$('.new-comment-form button').text('publica tu comentario').attr('disabled', false);
-			console.log(comment.id);
 		}
 	});
 
@@ -14548,12 +14548,25 @@ module.exports = {
                     html += '</article>'
                     $('.comment-section').append(html);
 
+                    
 
+                 // console.log($('.published-item-detail').data('id'));
                 }
-                // console.log(response.length);
-                var count = '<div>' + (response.length) + '</div>';
 
-                $('.comments-link').prepend(count);
+                // var articleId = $(this).find('.published-item').data('id');
+                // console.log(higherId);
+                // console.log(response.slice(0)[0]);
+                var count = '<div>' + (response.length) + '</div>';
+                // $('.comments-link').prepend(count);  
+                var num = $('.published-item-detail').data('id');              
+
+                
+                $('.published-list').find('[data-id="' + ($('.published-item').data('id')) + '"]').find('.comments-link').prepend(count);
+                    
+                
+                
+                // $('.published-list').find('[data-id="' + key + '"]').find('footer').addClass('bookmarked-in-css');
+
 
             },
             error: function(response) {

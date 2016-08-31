@@ -34,12 +34,25 @@ module.exports = {
                     html += '</article>'
                     $('.comment-section').append(html);
 
+                    
 
+                 // console.log($('.published-item-detail').data('id'));
                 }
-                // console.log(response.length);
-                var count = '<div>' + (response.length) + '</div>';
 
-                $('.comments-link').prepend(count);
+                // var articleId = $(this).find('.published-item').data('id');
+                // console.log(higherId);
+                // console.log(response.slice(0)[0]);
+                var count = '<div>' + (response.length) + '</div>';
+                // $('.comments-link').prepend(count);  
+                var num = $('.published-item-detail').data('id');              
+
+                
+                $('.published-list').find('[data-id="' + ($('.published-item').data('id')) + '"]').find('.comments-link').prepend(count);
+                    
+                
+                
+                // $('.published-list').find('[data-id="' + key + '"]').find('footer').addClass('bookmarked-in-css');
+
 
             },
             error: function(response) {
