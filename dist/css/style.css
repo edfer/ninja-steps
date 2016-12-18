@@ -490,3 +490,52 @@ form {
   @media all and (min-width: 1026px) {
     .icon-menu {
       display: none; } }
+
+.breadcrumb {
+  list-style: none;
+  overflow: hidden;
+  font: 12px Sans-Serif; }
+
+.breadcrumb li {
+  float: left; }
+
+.breadcrumb li a {
+  color: #f1f9f9;
+  text-decoration: none;
+  padding: 5px 0px 5px 50px;
+  background: #74C2C3;
+  /* fallback color */
+  background: #0F2F50;
+  position: relative;
+  display: block;
+  float: left; }
+
+.breadcrumb li a::after {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  /* Go big on the size, and let overflow hide */
+  border-bottom: 50px solid transparent;
+  border-left: 30px solid #0F2F50;
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  left: 100%;
+  z-index: 2; }
+
+.breadcrumb li a::before {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 30px solid white;
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  margin-left: 1px;
+  left: 100%;
+  z-index: 1; }
